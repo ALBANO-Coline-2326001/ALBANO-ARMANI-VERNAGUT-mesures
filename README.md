@@ -1,3 +1,3 @@
-Albano Coline \n
-Armani Baptiste \n
+Albano Coline \
+Armani Baptiste \
 Vernagut Titouan
