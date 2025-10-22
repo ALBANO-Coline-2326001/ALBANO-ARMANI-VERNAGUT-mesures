@@ -1,0 +1,37 @@
+/*
+ * Nom du fichier : IqSort0.c
+ * Auteur         : Armani Baptiste
+ * Date           : 22 octobre 2025
+ * Description    : Ce programme trie un tableau de nombres avec le tri rapide (QuickSort).
+ *                  Le premier élément sert de pivot.
+ *                  On met les plus petits à gauche, les plus grands à droite,
+ *                  puis on recommence sur chaque partie.
+ */
+// Fonction pour échanger deux éléments dans le tableau
+void swap(int i, int j, int *a) {
+    int temp = a[i];
+    a[i] = a[j];
+    a[j] = temp;
+}
+// Fonction principale du tri rapide
+void IqSort0(int *a, int n) {
+    int i, j;
+    // Si le tableau a 0 ou 1 élément, il est déjà trié
+    if (n <= 1) {
+        return;
+    }
+    // Le premier élément du tableau est choisi comme pivot
+    // On va mettre tous les nombres plus petits que lui à gauche
+    for (i = 1, j = 0; i < n; i++) {
+        if (a[i] < a[0]) {
+            // Si l’élément est plus petit que le pivot, on l’échange
+            swap(++j, i, a);
+        }
+    }
+    // On place le pivot à sa bonne position
+    swap(0, j, a);
+    // On trie la partie gauche (plus petits que le pivot)
+    IqSort0(a, j);
+    // On trie la partie droite (plus grands que le pivot)
+    IqSort0(a + j + 1, n - j - 1);
+}
